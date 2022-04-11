@@ -22,7 +22,8 @@ def play_wordle():
         for index, letter in enumerate(secret_word):
             if guess_copy[index] == letter:
                 feedback[index] = '√'
-                guess_copy = guess_copy[:index] + '0' + guess_copy[index + 1:]  # replace the letter that have been checked with 0
+                guess_copy = guess_copy[:index] + '0' + guess_copy[
+                                                        index + 1:]  # replace the letter that have been checked with 0
         if feedback.count('√') == 5:  # check if the player guessed the word successfully
             print(f"Congrats. You guess the word after {round_num} attempt/s")
             break
