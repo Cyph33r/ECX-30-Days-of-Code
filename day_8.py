@@ -17,7 +17,7 @@ def encrypt(data: str, shift_value: int) -> str:
         if not char.isalpha():
             digest += char
             continue
-        ordinal = lowercase.find(char)
+        ordinal = lowercase.find(char.lower())
         ordinal_shifted = ordinal + shift_value
         ordinal_shifted = ordinal_shifted % 26
         if char.islower():
@@ -42,7 +42,7 @@ def decrypt(_cipher, shift_value):
         if not char.isalpha():  # if the character is a letter do not decrypt
             data += char
             continue
-        ordinal = lowercase.find(char)  # get the zero index of the letter
+        ordinal = lowercase.find(char.lower())  # get the zero index of the letter
         ordinal_shifted = ordinal - shift_value
         ordinal_shifted = ordinal_shifted % 26  # wrap, it if it passes the limits
         if char.islower():  # if it is lowercase, append a lowercase shifted value
@@ -64,7 +64,7 @@ if __name__ == '__main__':
             shift = input('Enter your shift value in digits: ').strip()
             try:
                 shift = int(shift)
-                print(f'Your cipher is {encrypt(secret_word, shift)}')
+                print(f'Your cipher is {decrypt(secret_word, shift)}')
                 break
             except ValueError:
                 print("You entered a non digit. Let's try that again")
@@ -74,7 +74,7 @@ if __name__ == '__main__':
             shift = input('Enter your shift value in digits: ').strip()
             try:
                 shift = int(shift)
-                print(f'Your result is {decrypt(cipher, shift)}')
+                print(f'Your result is {encrypt(cipher, shift)}')
                 break
             except ValueError:
                 print("You entered a non digit. Let's try that again")
