@@ -11,7 +11,7 @@ def encrypt(data: str, shift_value: int) -> str:
     """
     assert isinstance(data, str), f"Expected class string for parameter data but {data.__class__} was entered"
     assert isinstance(shift_value,
-                      int), f"Expected class string for parameter shift but {shift_value.__class__} was entered"
+                      int), f"Expected class string for parameter shift_value but {shift_value.__class__} was entered"
     digest = ''
     for char in data:  # if the character is not a letter do not encrypt
         if not char.isalpha():
@@ -34,9 +34,9 @@ def decrypt(_cipher, shift_value):
     :param shift_value: the shift value used to encode
     :return: the original data that would give back the _cipher when encrypted
     """
-    assert isinstance(_cipher, str), f"Expected class string for parameter data but {_cipher.__class__} was entered"
+    assert isinstance(_cipher, str), f"Expected class string for parameter _cipher but {_cipher.__class__} was entered"
     assert isinstance(shift_value,
-                      int), f"Expected class string for parameter shift but {shift_value.__class__} was entered"
+                      int), f"Expected class string for parameter shift_value but {shift_value.__class__} was entered"
     data = ''
     for char in _cipher:
         if not char.isalpha():  # if the character is a letter do not decrypt
@@ -54,9 +54,9 @@ def decrypt(_cipher, shift_value):
 
 if __name__ == '__main__':
     print('Welcome to Cyph3r\'s cipher machine')
-    response = input('Would you be (d)ecrypting or (e)ncrypting today: ').lower().strip()
+    response = input('Would you be (d)ecrypting or (e)ncrypting today?: ').lower().strip()
     while response not in ('d', 'e'):
-        print('Oops!! You gave an invalid response\nLet\'s try that again')
+        print('Oops!! You gave an invalid response. Let\'s try that again')
         response = input('Would you be (d)ecrypting or (e)ncrypting today: ').lower().strip()
     if response == 'd':
         secret_word = input('Enter your secret word...i promise not to peek( ͡x ͜ʖ ͡x )\n???').strip()
