@@ -12,7 +12,7 @@ def _is_prime(num: int) -> bool:
         if num % i == 0:  # check if the number is divisible
             is_prime = False  # if some is_prime becomes False and is returned
             break
-    return is_prime # if the for loop completed successfully this returns True
+    return is_prime  # if the for loop completed successfully this returns True
 
 
 if __name__ == '__main__':
