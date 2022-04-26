@@ -19,13 +19,14 @@ def countdown():
         digit = int(unit[:-1])  # get the time digit
         endings = {'d': 86_400, 'h': 3_600, 'm': 60, 's': 1}  # conversion to second for each unit
         seconds += endings[ending] * digit  # convert each unit to second and  add to the countdown
-    while seconds - 1:  # countdown
+    while seconds:  # countdown
         print(f'{seconds} seconds left')
         seconds -= 1
         sleep(1)
     print('Time up!!!')
     while True:
         print('\a')
+        sleep(0.6)
 
 
 if __name__ == '__main__':
